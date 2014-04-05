@@ -21,7 +21,7 @@
     "type": "git",
     "url": "git://github.com/ednapiranha/node-no-plebs.git"
   },
-  "keywords": [],
+  "keywords": ["leveldb", "comments"],
   "author": "Edna Piranha <jen@ednapiranha.com> (http://ednapiranha.com)",
   "license": "BSD"
 }
