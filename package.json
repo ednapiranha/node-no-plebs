@@ -1,0 +1,27 @@
+{
+  "name": "no-plebs",
+  "version": "0.0.1",
+  "description": "commenting module",
+  "main": "main.js",
+  "dependencies": {
+    "level": ">= 0.10.0",
+    "level-sublevel": "~5.2.0",
+    "leveldown": "~0.10.2",
+    "uuid": "~1.4.1",
+    "concat-stream": "~1.4.4"
+  },
+  "devDependencies": {
+    "mocha": "~1.18.2",
+    "should": "~3.2.0"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ednapiranha/npm-template.git"
+  },
+  "keywords": [],
+  "author": "Edna Piranha <jen@ednapiranha.com> (http://ednapiranha.com)",
+  "license": "BSD"
+}
