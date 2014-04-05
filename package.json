@@ -1,6 +1,6 @@
 {
   "name": "no-plebs",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "commenting module",
   "main": "main.js",
   "dependencies": {
