@@ -45,7 +45,7 @@ var NoPlebs = function (options) {
     }
 
     if (originClean(origin).length < 1) {
-      next(new Error('Origin cnanot be empty'));
+      next(new Error('Origin cannot be empty'));
       return;
     }
 
