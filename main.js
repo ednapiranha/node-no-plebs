@@ -12,8 +12,11 @@ var NoPlebs = function (options) {
 
   options = options || {};
 
+  var LIMIT = 25;
+
   this.dbPath = options.db || './db';
   this.origins = {};
+  this.limit = parseInt(options.limit || LIMIT, 10);
 
   var self = this;
 
@@ -73,12 +76,15 @@ var NoPlebs = function (options) {
     });
   };
 
-  this.getComments = function (origin, next) {
+  this.getComments = function (origin, reverse, next) {
     origin = originClean(origin);
 
     var originDB = getOrSetOrigin(origin);
 
-    var rs = this.origins[origin].createReadStream();
+    var rs = this.origins[origin].createReadStream({
+      limit: this.limit,
+      reverse: reverse
+    });
 
     rs.pipe(concat(function (comments) {
       next(null, {

@@ -57,7 +57,7 @@ describe('no', function () {
 
   describe('.getComments', function () {
     it('should get comments', function (done) {
-      n.getComments('http://someurl/123', function (err, c) {
+      n.getComments('http://someurl/123', false, function (err, c) {
         should.exist(c);
         done();
       });
@@ -68,7 +68,7 @@ describe('no', function () {
     it('should remove a comment', function (done) {
       n.removeComment('http://someurl/123', key, function (err, c) {
         should.exist(c);
-        n.getComments('http://someurl/123', function (err, c) {
+        n.getComments('http://someurl/123', false, function (err, c) {
           c.comments.length.should.eql(0);
           done();
         });
