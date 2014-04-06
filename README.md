@@ -33,7 +33,7 @@ This is a standalone module to connect to any blog that can be pinned to a speci
 
 ## Remove a comment
 
-    n.removeComment('http://someblog.com/123', '1396755219283!comment', function (err, status) {
+    n.removeComment('http://someblog.com/123', '1396755219283', function (err, status) {
       if (!err) {
         console.log('deleted!');
       }
@@ -41,4 +41,4 @@ This is a standalone module to connect to any blog that can be pinned to a speci
 
 ## Tests
 
-    make test
+    npm test

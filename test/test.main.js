@@ -4,7 +4,6 @@ process.env.NODE_ENV = 'test';
 
 var should = require('should');
 var child = require('child_process');
-var concat = require('concat-stream');
 var NoPlebs = require('../main');
 
 var n = new NoPlebs({
@@ -53,12 +52,21 @@ describe('no', function () {
         done();
       });
     });
+
+    it('should not add a new comment with an invalid origin', function (done) {
+      n.addComment('test comment', '//', 'jen', function (err, c) {
+        should.not.exist(c);
+        should.exist(err);
+        done();
+      });
+    });
   });
 
   describe('.getComments', function () {
     it('should get comments', function (done) {
       n.getComments('http://someurl/123', false, function (err, c) {
         should.exist(c);
+        c.comments.length.should.eql(1);
         done();
       });
     });

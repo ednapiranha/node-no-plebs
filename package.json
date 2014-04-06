@@ -1,6 +1,6 @@
 {
   "name": "no-plebs",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "leveldb commenting module",
   "main": "main.js",
   "dependencies": {
@@ -15,7 +15,7 @@
     "should": "~3.2.0"
   },
   "scripts": {
-    "test": "make test"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
