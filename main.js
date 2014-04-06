@@ -13,6 +13,7 @@ var NoPlebs = function (options) {
   options = options || {};
 
   var LIMIT = 25;
+  var WS_MATCH = /[\s+]/gi;
 
   this.dbPath = options.db || './db';
   this.origins = {};
@@ -21,7 +22,7 @@ var NoPlebs = function (options) {
   var self = this;
 
   var originClean = function (origin) {
-    return origin.replace(/[^\w+]/gi, '').replace(/[\s+]/gi, '');
+    return origin.replace(/[^\w+]/gi, '').replace(WS_MATCH, '');
   };
 
   var getOrSetOrigin = function (origin) {
@@ -37,8 +38,8 @@ var NoPlebs = function (options) {
 
   this.addComment = function (comment, origin, author, next) {
     var defaultOrigin = origin;
-    var commentClean = comment.replace(/[\s+]/gi, '');
-    var authorClean = author.replace(/[\s+]/gi, '');
+    var commentClean = comment.replace(WS_MATCH, '');
+    var authorClean = author.replace(WS_MATCH, '');
 
     if (commentClean.length < 1) {
       next(new Error('Comment cannot be empty'));
