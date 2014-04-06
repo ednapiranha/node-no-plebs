@@ -10,9 +10,7 @@ var NoPlebs = function (options) {
     return Date.now();
   };
 
-  if (!options) {
-    options = {};
-  }
+  options = options || {};
 
   this.dbPath = options.db || './db';
   this.origins = {};
