@@ -60,14 +60,15 @@ var NoPlebs = function (options) {
     var currDate = setTime();
 
     var commentDetail = {
-      key: currDate + '!comment',
+      key: currDate,
       created: currDate,
       comment: comment,
       author: author,
-      origin: defaultOrigin
+      origin: defaultOrigin,
+      anchorLink: defaultOrigin + '#comments-' + currDate
     };
 
-    originDB.put(currDate + '!comment', commentDetail, function (err) {
+    originDB.put(currDate, commentDetail, function (err) {
       if (err) {
         next(err);
         return;
