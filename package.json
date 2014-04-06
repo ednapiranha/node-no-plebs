@@ -1,7 +1,7 @@
 {
   "name": "no-plebs",
   "version": "0.0.4",
-  "description": "commenting module",
+  "description": "leveldb commenting module",
   "main": "main.js",
   "dependencies": {
     "level": ">= 0.10.0",
