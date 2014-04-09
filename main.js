@@ -37,6 +37,7 @@ var NoPlebs = function (options) {
   };
 
   this.addComment = function (comment, origin, author, next) {
+    var defaultOrigin = origin;
     var commentClean = comment.replace(WS_MATCH, '');
     var authorClean = author.replace(WS_MATCH, '');
 
@@ -63,8 +64,8 @@ var NoPlebs = function (options) {
       created: currDate,
       comment: comment,
       author: author,
-      origin: origin,
-      anchorLink: origin + '#comments-' + currDate
+      origin: defaultOrigin,
+      anchorLink: defaultOrigin + '#comments-' + currDate
     };
 
     originDB.put(currDate, commentDetail, function (err) {
@@ -95,6 +96,21 @@ var NoPlebs = function (options) {
 
     rs.on('error', function (err) {
       next(err);
+    });
+  };
+
+  this.getComment = function (origin, key, next) {
+    origin = originClean(origin);
+
+    var originDB = getOrSetOrigin(origin);
+
+    originDB.get(key, function (err, comment) {
+      if (err) {
+        next(err);
+        return;
+      }
+
+      next(null, comment);
     });
   };
 

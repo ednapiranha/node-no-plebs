@@ -37,6 +37,16 @@ n.getComments('http://someblog.com/123', <reverse>, function (err, comments) {
 
 `reverse` is an optional boolean to reverse the comment history from latest -> earliest. Defaults at earliest -> latest.
 
+## Get a single comment
+
+```js
+n.getComment('http://someblog.com/123', <key>, function (err, comment) {
+  if (!err) {
+    console.log(comment);
+  }
+});
+```
+
 ## Remove a comment
 
 ```js

@@ -72,6 +72,15 @@ describe('no', function () {
     });
   });
 
+  describe('.getComment', function () {
+    it('should get a comment', function (done) {
+      n.getComment('http://someurl/123', key, function (err, c) {
+        should.exist(c);
+        done();
+      });
+    });
+  });
+
   describe('.removeComment', function () {
     it('should remove a comment', function (done) {
       n.removeComment('http://someurl/123', key, function (err, c) {
