@@ -38,7 +38,12 @@ var NoPlebs = function (options) {
 
   this.addComment = function (comment, origin, author, next) {
     var defaultOrigin = origin;
-    var commentClean = comment.replace(WS_MATCH, '');
+    var commentClean;
+
+    if (typeof comment !== 'object') {
+      commentClean = comment.replace(WS_MATCH, '');
+    }
+
     var authorClean = author.replace(WS_MATCH, '');
 
     if (commentClean.length < 1) {
