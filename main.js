@@ -42,14 +42,14 @@ var NoPlebs = function (options) {
 
     if (typeof comment !== 'object') {
       commentClean = comment.replace(WS_MATCH, '');
+
+      if (commentClean.length < 1) {
+        next(new Error('Comment cannot be empty'));
+        return;
+      }
     }
 
     var authorClean = author.replace(WS_MATCH, '');
-
-    if (commentClean.length < 1) {
-      next(new Error('Comment cannot be empty'));
-      return;
-    }
 
     if (originClean(origin).length < 1) {
       next(new Error('Origin cannot be empty'));
