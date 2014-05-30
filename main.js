@@ -5,6 +5,7 @@ var NoPlebs = function (options) {
   var uuid = require('uuid');
   var Sublevel = require('level-sublevel');
   var concat = require('concat-stream');
+  var through2 = require('through2');
 
   var setTime = function () {
     return Date.now();
@@ -96,6 +97,28 @@ var NoPlebs = function (options) {
     rs.pipe(concat(function (comments) {
       next(null, {
         comments: comments
+      });
+    }));
+
+    rs.on('error', function (err) {
+      next(err);
+    });
+  };
+
+  this.getAllCommentKeys = function (origin, next) {
+    origin = originClean(origin);
+
+    var originDB = getOrSetOrigin(origin);
+    var keys = [];
+
+    var rs = this.origins[origin].createKeyStream();
+
+    rs.pipe(through2(function (data, encoding, next) {
+      keys.push(data.toString());
+      next();
+    })).pipe(concat(function () {
+      next(null, {
+        comments: keys
       });
     }));
 

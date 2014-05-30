@@ -62,6 +62,16 @@ describe('no', function () {
     });
   });
 
+  describe('.getAllCommentKeys', function () {
+    it('should get all comments and return their keys', function (done) {
+      n.getAllCommentKeys('http://someurl/123', function (err, c) {
+        should.exist(c);
+        c.comments.length.should.eql(1);
+        done();
+      });
+    });
+  });
+
   describe('.getComments', function () {
     it('should get comments', function (done) {
       n.getComments('http://someurl/123', false, function (err, c) {
