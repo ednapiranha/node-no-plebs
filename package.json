@@ -1,6 +1,6 @@
 {
   "name": "no-plebs",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "leveldb commenting module",
   "main": "main.js",
   "dependencies": {
@@ -8,7 +8,8 @@
     "level-sublevel": "~5.2.0",
     "leveldown": "~0.10.2",
     "uuid": "~1.4.1",
-    "concat-stream": "~1.4.4"
+    "concat-stream": "~1.4.4",
+    "through2": "~0.4.2"
   },
   "devDependencies": {
     "mocha": "~1.18.2",
